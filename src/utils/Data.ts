@@ -54,7 +54,7 @@ const mixImages = (arr: imageType[]) => {
     // Swap value
     [arr[i], arr[x]] = [arr[x], arr[i]];
   }
-  console.log(arr);
+
   return arr;
 };
 
