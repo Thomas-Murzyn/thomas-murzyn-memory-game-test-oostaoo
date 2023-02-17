@@ -1,8 +1,11 @@
-.card-container {
-  width: 70%;
-  height: 70%;
-  background-color: green;
+.cards-container {
+  width: 800px;
+  height: 800px;
+  background-color: blue;
+  border-radius: 1em;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
+  gap: 1em;
+  padding: 20px;
 }

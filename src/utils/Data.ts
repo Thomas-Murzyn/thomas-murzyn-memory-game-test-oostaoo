@@ -41,14 +41,14 @@ const imageArray = [
   },
 ];
 
-export type imageArrayType = {
+export type imageType = {
   id: number;
   src: string;
   name: string;
 };
 
 // Function for images mixing
-const mixImages = (arr: imageArrayType[]) => {
+const mixImages = (arr: imageType[]) => {
   for (let i = arr.length - 1; i > 0; i--) {
     const x = Math.floor(Math.random() * (i + 1));
     // Swap value
@@ -59,4 +59,5 @@ const mixImages = (arr: imageArrayType[]) => {
 };
 
 // We double images and then mixed them
-export const images = mixImages(imageArray.concat(imageArray));
+const images = mixImages(imageArray.concat(imageArray));
+export default images;
