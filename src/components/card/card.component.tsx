@@ -18,8 +18,6 @@ function Card({
   cardsChosenIndex,
   cardsOpen,
 }: CardType) {
-  const [isActive, setIsActive] = useState(false);
-
   const clickHandler = () => {
     selectImage(id, index);
   };
@@ -31,7 +29,9 @@ function Card({
   return (
     <div
       onClick={clickHandler}
-      className={`card-container ${isCardActive(id, index) ? "active" : ""}`}
+      className={`card-container ${isCardActive(id, index) ? "active" : ""}${
+        cardsOpen.includes(id) ? " success" : ""
+      }`}
     >
       <img src={src} alt={name} />
     </div>
