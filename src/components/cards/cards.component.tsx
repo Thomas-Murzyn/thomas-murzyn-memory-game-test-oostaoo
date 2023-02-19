@@ -1,20 +1,17 @@
 import "./cards.styles.scss";
-import imagesList from "../../utils/Data";
 import Card from "../card/card.component";
-import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   playerWin,
   addCardsIdAndIndex,
   resetCardsIdAndIndex,
 } from "../../app/features/game/game.slice";
+import { imageType } from "../../utils/Data";
 
-function Cards() {
+function Cards({ images }: { images: imageType[] }) {
   const dispatch = useAppDispatch();
   const cardsIndex = useAppSelector((state) => state.game.cardsIndex);
   const cardsId = useAppSelector((state) => state.game.cardsId);
-
-  const [images, setImages] = useState(imagesList);
 
   const selectImage = (id: number, index: number) => {
     // If we click on the same card

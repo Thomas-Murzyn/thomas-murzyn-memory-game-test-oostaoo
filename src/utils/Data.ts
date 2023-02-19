@@ -48,7 +48,7 @@ export type imageType = {
 };
 
 // Function for images mixing
-const mixImages = (arr: imageType[]) => {
+export const mixImages = (arr: imageType[]) => {
   for (let i = arr.length - 1; i > 0; i--) {
     const x = Math.floor(Math.random() * (i + 1));
     // Swap value
@@ -59,5 +59,5 @@ const mixImages = (arr: imageType[]) => {
 };
 
 // We double images and then mixed them
-const images = mixImages(imageArray.concat(imageArray));
+const images = imageArray.concat(imageArray);
 export default images;

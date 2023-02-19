@@ -4,18 +4,26 @@ import { useAppSelector, useAppDispatch } from "./app/hooks";
 import Button from "./components/button/button.component";
 import { ButtonType } from "./components/button/button.component";
 import { resetGame, startGame } from "./app/features/game/game.slice";
-
+import { useState, useEffect } from "react";
 import TimeBar from "./components/time-bar/time-bar.component";
+import imagesList, { mixImages } from "./utils/Data";
+import { imageType } from "./utils/Data";
 
 function App() {
   const points = useAppSelector((state) => state.game.points);
   const isGameStarted = useAppSelector((state) => state.game.isGameStarted);
+  const [images, setImages] = useState<imageType[]>([]);
 
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    setImages(mixImages(imagesList));
+  }, []);
 
   const handleClick = () => {
     if (isGameStarted) {
       dispatch(resetGame());
+      setImages(mixImages(imagesList));
     } else {
       dispatch(startGame());
     }
@@ -35,7 +43,7 @@ function App() {
           {isGameStarted ? "Reset" : "Start"}
         </Button>
       </div>
-      <Cards />
+      <Cards images={images} />
       {isGameStarted && <TimeBar />}
     </div>
   );
