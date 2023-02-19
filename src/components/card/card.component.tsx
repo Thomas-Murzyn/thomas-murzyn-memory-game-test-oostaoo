@@ -10,9 +10,12 @@ export type CardType = {
 function Card({ id, name, src, index, selectImage }: CardType) {
   const cardsIndex = useAppSelector((state) => state.game.cardsIndex);
   const cardsOpen = useAppSelector((state) => state.game.cardsOpen);
+  const isGameStarted = useAppSelector((state) => state.game.isGameStarted);
 
   const clickHandler = () => {
-    selectImage(id, index);
+    if (isGameStarted) {
+      selectImage(id, index);
+    }
   };
 
   function isCardActive(id: number, index: number) {

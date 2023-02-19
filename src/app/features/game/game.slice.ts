@@ -1,11 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export enum GameStatus {
+  game = "game",
+  success = "success",
+  lose = "lose",
+}
+
 export type gameState = {
   points: number;
   cardsId: number[];
   cardsIndex: number[];
   cardsOpen: number[];
   isGameStarted: boolean;
+  gameStatus: GameStatus;
 };
 
 export const initialState: gameState = {
@@ -14,6 +21,7 @@ export const initialState: gameState = {
   cardsIndex: [],
   cardsOpen: [],
   isGameStarted: false,
+  gameStatus: GameStatus.game,
 };
 
 const gameSlice = createSlice({
@@ -22,6 +30,11 @@ const gameSlice = createSlice({
   reducers: {
     startGame: (state) => {
       state.isGameStarted = true;
+      state.cardsId = [];
+      state.cardsIndex = [];
+      state.cardsOpen = [];
+      state.points = 0;
+      state.gameStatus = GameStatus.game;
     },
     playerWin: (state, action: PayloadAction<number>) => {
       state.points += 10;
@@ -47,6 +60,11 @@ const gameSlice = createSlice({
       state.cardsOpen = [];
       state.points = 0;
       state.isGameStarted = false;
+      state.gameStatus = GameStatus.game;
+    },
+    endGame: (state, action: PayloadAction<GameStatus>) => {
+      state.gameStatus = action.payload;
+      state.isGameStarted = false;
     },
   },
 });
@@ -57,6 +75,7 @@ export const {
   resetCardsIdAndIndex,
   resetGame,
   startGame,
+  endGame,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;
