@@ -36,10 +36,20 @@ const gameSlice = createSlice({
       state.cardsId = [];
       state.cardsIndex = [];
     },
+    resetGame: (state) => {
+      state.cardsId = [];
+      state.cardsIndex = [];
+      state.cardsOpen = [];
+      state.points = 0;
+    },
   },
 });
 
-export const { playerWin, addCardsIdAndIndex, resetCardsIdAndIndex } =
-  gameSlice.actions;
+export const {
+  playerWin,
+  addCardsIdAndIndex,
+  resetCardsIdAndIndex,
+  resetGame,
+} = gameSlice.actions;
 
 export default gameSlice.reducer;
