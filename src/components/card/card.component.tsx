@@ -1,29 +1,22 @@
 import "./card.styles.scss";
 import { imageType } from "../../utils/Data";
-import { useState } from "react";
+import { useAppSelector } from "../../app/hooks";
 
 export type CardType = {
   index: number;
   selectImage: (index: number, id: number) => void;
-  cardsChosenIndex: number[];
-  cardsOpen: number[];
 } & imageType;
 
-function Card({
-  id,
-  name,
-  src,
-  index,
-  selectImage,
-  cardsChosenIndex,
-  cardsOpen,
-}: CardType) {
+function Card({ id, name, src, index, selectImage }: CardType) {
+  const cardsIndex = useAppSelector((state) => state.game.cardsIndex);
+  const cardsOpen = useAppSelector((state) => state.game.cardsOpen);
+
   const clickHandler = () => {
     selectImage(id, index);
   };
 
   function isCardActive(id: number, index: number) {
-    return cardsChosenIndex?.includes(index) || cardsOpen?.includes(id);
+    return cardsIndex?.includes(index) || cardsOpen?.includes(id);
   }
 
   return (
