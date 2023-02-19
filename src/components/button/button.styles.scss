@@ -2,7 +2,6 @@
   border: none;
   font-size: 25px;
   font-family: inherit;
-  margin-bottom: 20px;
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 0.2em;
@@ -21,8 +20,6 @@
 .ButtonReset {
   color: black;
   background-color: #4bb543;
-
-  color: black;
   transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
   &:hover {
     background-color: red;
