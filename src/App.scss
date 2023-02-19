@@ -8,13 +8,13 @@
 }
 
 .game-header {
-  width: 50%;
+  width: 45%;
   padding: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 
-  h1 {
+  h2 {
     font-size: 30px;
   }
 }

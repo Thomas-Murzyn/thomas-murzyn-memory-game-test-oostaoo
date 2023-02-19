@@ -24,7 +24,8 @@ function App() {
   return (
     <div className="App">
       <div className="game-header">
-        <h1>Your score : {points}</h1>
+        <h2>Memory Game</h2>
+        <h2>Your score : {points}</h2>
         <Button
           onClick={handleClick}
           buttonStyle={

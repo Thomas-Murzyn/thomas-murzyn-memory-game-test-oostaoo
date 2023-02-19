@@ -20,6 +20,7 @@
 
 .ButtonReset {
   background-color: red;
+  border: 1px solid black;
   color: black;
   transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
   &:hover {
