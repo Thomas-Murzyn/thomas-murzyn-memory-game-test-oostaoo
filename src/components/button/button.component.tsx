@@ -12,7 +12,11 @@ type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 function Button({ buttonStyle, children, ...otherProps }: ButtonProps) {
-  return <button>{children}</button>;
+  return (
+    <button {...otherProps} className={`game-button ${buttonStyle}`}>
+      {children}
+    </button>
+  );
 }
 
 export default Button;
