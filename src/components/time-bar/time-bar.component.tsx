@@ -25,6 +25,7 @@ function TimeBar() {
     if (points === 80) {
       clearInterval(myInterval.current);
       dispatch(endGame(GameStatus.success));
+      // eslint-disable-next-line
     }
 
     if (time === 60) {
@@ -35,12 +36,16 @@ function TimeBar() {
         dispatch(endGame(GameStatus.lose));
       }
     }
+    // eslint-disable-next-line
   }, [time]);
 
   return (
     <div className="time-bar-wrapper">
       <div
-        style={{ width: `${time * 1.66666667}%` }}
+        style={{
+          width: `${time * 1.66666667}%`,
+          backgroundColor: `${time * 1.66666667 >= 85 ? "red" : "#4bb543"}`,
+        }}
         className="time-bar"
       ></div>
     </div>
