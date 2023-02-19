@@ -2,8 +2,8 @@ import "./button.styles.scss";
 import { ButtonHTMLAttributes } from "react";
 
 export enum ButtonType {
-  ButtonHome = "ButtonHome",
-  ButtonSubmit = "ButtonSubmit",
+  ButtonStart = "ButtonStart",
+  ButtonReset = "ButtonReset",
 }
 
 type ButtonProps = {
@@ -11,8 +11,8 @@ type ButtonProps = {
   children: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-function Button() {
-  return <div>Button</div>;
+function Button({ buttonStyle, children, ...otherProps }: ButtonProps) {
+  return <button>{children}</button>;
 }
 
 export default Button;
