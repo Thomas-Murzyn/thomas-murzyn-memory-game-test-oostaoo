@@ -8,7 +8,8 @@
 }
 
 .ButtonStart {
-  background-color: red;
+  background-color: yellow;
+  border: 1px solid black;
   color: black;
   transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
   &:hover {
@@ -18,11 +19,11 @@
 }
 
 .ButtonReset {
+  background-color: red;
   color: black;
-  background-color: #4bb543;
   transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
   &:hover {
-    background-color: red;
     color: black;
+    background-color: #4bb543;
   }
 }

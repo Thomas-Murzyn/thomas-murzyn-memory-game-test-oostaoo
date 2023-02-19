@@ -5,6 +5,7 @@ export type gameState = {
   cardsId: number[];
   cardsIndex: number[];
   cardsOpen: number[];
+  isGameStarted: boolean;
 };
 
 export const initialState: gameState = {
@@ -12,12 +13,16 @@ export const initialState: gameState = {
   cardsId: [],
   cardsIndex: [],
   cardsOpen: [],
+  isGameStarted: false,
 };
 
 const gameSlice = createSlice({
   name: "game",
   initialState,
   reducers: {
+    startGame: (state) => {
+      state.isGameStarted = true;
+    },
     playerWin: (state, action: PayloadAction<number>) => {
       state.points += 10;
       state.cardsOpen = state.cardsOpen.concat([
@@ -41,6 +46,7 @@ const gameSlice = createSlice({
       state.cardsIndex = [];
       state.cardsOpen = [];
       state.points = 0;
+      state.isGameStarted = false;
     },
   },
 });
@@ -50,6 +56,7 @@ export const {
   addCardsIdAndIndex,
   resetCardsIdAndIndex,
   resetGame,
+  startGame,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

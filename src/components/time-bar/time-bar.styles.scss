@@ -1,0 +1,14 @@
+.time-bar-wrapper {
+  width: 50%;
+  height: 30px;
+  border: 2px solid red;
+  border-radius: 2em;
+}
+
+.time-bar {
+  background-color: #4bb543;
+  border-radius: 2em;
+  height: 26.5px;
+  transition: "with 300ms ease-in-out";
+  padding-left: 19px;
+}
