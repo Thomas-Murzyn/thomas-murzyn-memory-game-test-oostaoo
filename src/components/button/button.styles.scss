@@ -8,7 +8,7 @@
 }
 
 .ButtonStart {
-  background-color: yellow;
+  background-color: #d8c724;
   border: 1px solid black;
   color: black;
   transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
@@ -25,6 +25,6 @@
   transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
   &:hover {
     color: black;
-    background-color: #4bb543;
+    background-color: #d8c724;
   }
 }

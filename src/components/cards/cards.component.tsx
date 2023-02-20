@@ -13,22 +13,24 @@ function Cards({ images }: { images: imageType[] }) {
   const cardsIndex = useAppSelector((state) => state.game.cardsIndex);
   const cardsId = useAppSelector((state) => state.game.cardsId);
 
+  // This function handle click on a card
   const selectImage = (id: number, index: number) => {
-    // If we click on the same card
+    // If we click on the same card do nothing
     if (cardsIndex?.length === 1 && cardsIndex[0] === index) {
       return;
     }
 
+    // if card length is less than 2 do add id to cardsId and index to cardsIndex
     if (cardsId?.length < 2) {
       dispatch(addCardsIdAndIndex({ id, index }));
 
-      // We check if cards are the same
+      // If cardsId already contain a card, check if id in cardsId and the current id are the same
       if (cardsId?.length === 1) {
         if (cardsId[0] === id) {
-          // If there are the same add point and add cards to cardsOpen
+          // If there are the same add point and add cardsId[0] and current id to cardsOpen
           dispatch(playerWin(id));
         }
-        // Reset
+        // Reset cardsId and CardsIndex
         setTimeout(() => {
           dispatch(resetCardsIdAndIndex());
         }, 900);

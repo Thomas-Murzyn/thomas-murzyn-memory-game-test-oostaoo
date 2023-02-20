@@ -16,10 +16,12 @@ function App() {
 
   const dispatch = useAppDispatch();
 
+  // When starting mixImages and set images to the mixing array of images
   useEffect(() => {
     setImages(mixImages(imagesList));
   }, []);
 
+  // When clicked on start button is game is started reset game and mix images again, else startGame
   const handleClick = () => {
     if (isGameStarted) {
       dispatch(resetGame());
@@ -33,7 +35,7 @@ function App() {
     <div className="App">
       <div className="game-header">
         <h2>Memory Game</h2>
-        <h2>Your score : {points}</h2>
+        <h2>Your score : {points} / 80</h2>
         <Button
           onClick={handleClick}
           buttonStyle={

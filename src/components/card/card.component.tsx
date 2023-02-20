@@ -12,6 +12,7 @@ function Card({ id, name, src, index, selectImage }: CardType) {
   const cardsOpen = useAppSelector((state) => state.game.cardsOpen);
   const isGameStarted = useAppSelector((state) => state.game.isGameStarted);
 
+  // Handle click on a card, if game started enable click on card, else disable click
   const clickHandler = () => {
     if (isGameStarted) {
       selectImage(id, index);
