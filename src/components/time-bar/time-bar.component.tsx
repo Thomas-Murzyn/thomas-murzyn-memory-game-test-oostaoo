@@ -48,7 +48,7 @@ function TimeBar() {
         // Fullfill the width based on time multiply by 1.66666667 for reach 100. Because 100 / 60 = 1.66666667
         style={{
           width: `${time * 1.66666667}%`,
-          backgroundColor: `${time * 1.66666667 >= 85 ? "red" : "#4bb543"}`,
+          backgroundColor: `${time * 1.66666667 >= 85 ? "red" : "#d8c724"}`,
         }}
         className="time-bar"
       ></div>
